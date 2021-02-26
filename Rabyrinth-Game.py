@@ -1,5 +1,8 @@
 # IMPORTS
 import tkinter as tk
+# Load the library for sounds 
+import winsound
+
 
 # CONSTANTS
 SCREEN_WIDTH = 800
@@ -7,7 +10,23 @@ SCREEN_HEIGHT = 800
 X = -1
 Y = -1
 # VARIABLES
-grid = [[0,0,0,0,0,0,0,2,0,5,1,1,1,1,1,1,0,0,0],[0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0],[0,0,1,1,1,1,1,1,1,1,1,1,1,2,0,1,1,1,0],[0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0],[0,0,1,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,0],[0,0,1,0,2,0,0,0,0,0,0,0,0,1,0,0,0,0,0],[3,1,1,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0],[0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2],[0,0,1,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0],[2,1,1,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0],[0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0],[0,0,2,1,1,1,0,0,0,0,2,1,1,1,0,0,0,0,0],[0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0]]
+grid = [[0,0,0,0,0,0,0,2,0,5,1,1,1,1,1,1,0,0,0],
+        [0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0],
+        [0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0],
+        [0,0,1,1,1,1,1,1,1,1,1,1,1,2,0,1,1,1,0],
+        [0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0],
+        [0,0,1,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,0],
+        [0,0,1,0,2,0,0,0,0,0,0,0,0,1,0,0,0,0,0],
+        [3,1,1,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0],
+        [0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2],
+        [0,0,1,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0],
+        [2,1,1,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0],
+        [0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0],
+        [0,0,2,1,1,1,0,0,0,0,2,1,1,1,0,0,0,0,0],
+        [0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0]]
 # FUNCTION
 def getIndex3():
     global X,Y
@@ -42,7 +61,7 @@ def leftclick(event):
         grid[Y][X] = 1
         grid[Y][X-1] = 3
 
-    
+    # winsound.PlaySound("test.wav", winsound.SND_FILENAME)
     arrayToDrawing()
     print(grid)
 
@@ -55,8 +74,8 @@ def rightclick(event):
     if X<len(grid[0]) - 1 and grid[Y][X+1] == 1:
         grid[Y][X] = 1
         grid[Y][X+1] = 3
+    # winsound.PlaySound("test.wav", winsound.SND_FILENAME)
     print(grid)
-    
     arrayToDrawing()
 def upclick(event):
     global grid 
@@ -64,18 +83,26 @@ def upclick(event):
     if Y and grid[Y-1][X] == 1:
             grid[Y][X] = 1
             grid[Y-1][X] = 3
+    # winsound.PlaySound("test.wav", winsound.SND_FILENAME)
     print(grid)
     arrayToDrawing()
 def downclick(event):
     global grid
     getIndex3()
     if Y <len(grid)-1 and grid[Y+1][X] == 1:
-            grid[Y][X] = 1
-            grid[Y+1][X] = 3
+        grid[Y][X] = 1
+        grid[Y+1][X] = 3
+    # elif Y <len(grid)-1 and grid[Y+1][X] == 2:
+
+    # winsound.PlaySound("test.wav", winsound.SND_FILENAME)
     print(grid)
     arrayToDrawing()
-root = tk.Tk()
 
+# Play the sound 
+# winsound.PlaySound("test.wav", winsound.SND_FILENAME)
+
+
+root = tk.Tk()
 #LEFT CLICK
 root.bind ( " <Left> ", leftclick) 
 #RIGHT CLICK
