@@ -27,8 +27,6 @@ def arrayToDrawing():
         for j in range(len(grid[0])):
             x1 = j*40
             x2 = x1 + 40
-            # if grid[i][j] == 0:
-            #     canvas.create_rectangle(x1, y1, x2, y2, fill = "pink")
             if grid[i][j] == 1:
                 canvas.create_oval(x1, y1, x2, y2, fill = "gray")  
             elif grid[i][j] ==  3 :
