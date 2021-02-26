@@ -60,7 +60,10 @@ def leftclick(event):
     if X and grid[Y][X-1] == 1:
         grid[Y][X] = 1
         grid[Y][X-1] = 3
-
+    elif X and grid[Y][X-1] == 2:
+        label = Message( root, textvariable="YOU LOOSE", relief=RAISED )
+    elif X and grid[Y][X-1] == 5:
+        label = Message( root, textvariable="YOU WIN", relief=RAISED )
     # winsound.PlaySound("test.wav", winsound.SND_FILENAME)
     arrayToDrawing()
     print(grid)
@@ -74,6 +77,10 @@ def rightclick(event):
     if X<len(grid[0]) - 1 and grid[Y][X+1] == 1:
         grid[Y][X] = 1
         grid[Y][X+1] = 3
+    elif X<len(grid[0]) - 1 and grid[Y][X+1] == 2:
+        label = Message( root, textvariable="YOU LOOSE", relief=RAISED )
+    elif X<len(grid[0]) - 1 and grid[Y][X+1] == 5:
+        label = Message( root, textvariable="YOU WIN", relief=RAISED )
     # winsound.PlaySound("test.wav", winsound.SND_FILENAME)
     print(grid)
     arrayToDrawing()
@@ -83,6 +90,10 @@ def upclick(event):
     if Y and grid[Y-1][X] == 1:
             grid[Y][X] = 1
             grid[Y-1][X] = 3
+    elif Y and grid[Y-1][X] == 2:
+        label = Message( root, textvariable="YOU LOOSE", relief=RAISED )
+    elif Y and grid[Y-1][X] == 5:
+        label = Message( root, textvariable="YOU WIN", relief=RAISED )
     # winsound.PlaySound("test.wav", winsound.SND_FILENAME)
     print(grid)
     arrayToDrawing()
@@ -92,8 +103,10 @@ def downclick(event):
     if Y <len(grid)-1 and grid[Y+1][X] == 1:
         grid[Y][X] = 1
         grid[Y+1][X] = 3
-    # elif Y <len(grid)-1 and grid[Y+1][X] == 2:
-
+    elif Y <len(grid)-1 and grid[Y+1][X] == 2:
+        label = Message( root, textvariable="YOU LOOSE", relief=RAISED )
+    elif Y <len(grid)-1 and grid[Y+1][X] == 5:
+        label = Message( root, textvariable="YOU WIN", relief=RAISED )
     # winsound.PlaySound("test.wav", winsound.SND_FILENAME)
     print(grid)
     arrayToDrawing()
