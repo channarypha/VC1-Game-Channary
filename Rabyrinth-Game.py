@@ -26,7 +26,7 @@ def arrayToDrawing():
             x1 = j*40
             x2 = x1 + 40
             if grid[i][j] == 1:
-                canvas.create_rectangle(x1, y1, x2, y2, fill = "gray")  
+                canvas.create_rectangle(x1, y1, x2, y2, fill = "pink")  
             elif grid[i][j] ==  3 :
                 canvas.create_rectangle(x1, y1, x2, y2, fill = "black") 
             elif grid[i][j] == 2 :
