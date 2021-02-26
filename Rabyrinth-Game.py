@@ -9,7 +9,7 @@ Y = -1
 # VARIABLES
 grid = [[0,0,0,0,0,0,0,2,0,5,1,1,1,1,1,1,0,0,0],[0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0],[0,0,1,1,1,1,1,1,1,1,1,1,1,2,0,1,1,1,0],[0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0],[0,0,1,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,0],[0,0,1,0,2,0,0,0,0,0,0,0,0,1,0,0,0,0,0],[3,1,1,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0],[0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2],[0,0,1,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0],[2,1,1,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0],[0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0],[0,0,2,1,1,1,0,0,0,0,2,1,1,1,0,0,0,0,0],[0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0]]
 # FUNCTION
-def getIndex1():
+def getIndex3():
     global X,Y
     for index in range(len(grid)):
         for i in range(len(grid[0])):
@@ -26,19 +26,19 @@ def arrayToDrawing():
             x1 = j*40
             x2 = x1 + 40
             if grid[i][j] == 1:
-                canvas.create_oval(x1, y1, x2, y2, fill = "gray")  
+                canvas.create_rectangle(x1, y1, x2, y2, fill = "gray")  
             elif grid[i][j] ==  3 :
-                canvas.create_oval(x1, y1, x2, y2, fill = "black") 
+                canvas.create_rectangle(x1, y1, x2, y2, fill = "black") 
             elif grid[i][j] == 2 :
-                canvas.create_oval(x1, y1, x2, y2, fill = "red")
+                canvas.create_rectangle(x1, y1, x2, y2, fill = "red")
             elif grid[i][j] == 5 :
-                canvas.create_oval(x1, y1, x2, y2, fill = "green")
+                canvas.create_rectangle(x1, y1, x2, y2, fill = "green")
 
 # draw a line with white and black squares using the global array
 def leftclick(event):
     global grid
-    getIndex1()
-    if X :
+    getIndex3()
+    if X and grid[Y][X-1] == 1:
         grid[Y][X] = 1
         grid[Y][X-1] = 3
 
@@ -51,8 +51,8 @@ def leftclick(event):
     
 def rightclick(event):
     global grid
-    getIndex1()
-    if X<len(grid[0]) - 1:
+    getIndex3()
+    if X<len(grid[0]) - 1 and grid[Y][X+1] == 1:
         grid[Y][X] = 1
         grid[Y][X+1] = 3
     print(grid)
@@ -60,16 +60,16 @@ def rightclick(event):
     arrayToDrawing()
 def upclick(event):
     global grid 
-    getIndex1() 
-    if Y :
+    getIndex3() 
+    if Y and grid[Y-1][X] == 1:
             grid[Y][X] = 1
             grid[Y-1][X] = 3
     print(grid)
     arrayToDrawing()
 def downclick(event):
     global grid
-    getIndex1()
-    if Y <len(grid)-1:
+    getIndex3()
+    if Y <len(grid)-1 and grid[Y+1][X] == 1:
             grid[Y][X] = 1
             grid[Y+1][X] = 3
     print(grid)
