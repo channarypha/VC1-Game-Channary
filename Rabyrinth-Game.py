@@ -8,14 +8,12 @@ X = -1
 Y = -1
 # VARIABLES
 grid = [[0,0,0,0,0,0,0,2,0,5,1,1,1,1,1,1,0,0,0],[0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0],[0,0,1,1,1,1,1,1,1,1,1,1,1,2,0,1,1,1,0],[0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0],[0,0,1,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,0],[0,0,1,0,2,0,0,0,0,0,0,0,0,1,0,0,0,0,0],[3,1,1,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0],[0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2],[0,0,1,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0],[2,1,1,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0],[0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0],[0,0,2,1,1,1,0,0,0,0,2,1,1,1,0,0,0,0,0],[0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0]]
-indexOfone = 0
 # FUNCTION
 def getIndex1():
     global X,Y
     for index in range(len(grid)):
         for i in range(len(grid[0])):
             if grid[index][i] == 1:
-                indexOfone = i
                 Y =index
                 X = i
 
@@ -41,7 +39,7 @@ def leftclick(event):
     global grid
     getIndex1()
     if X :
-        grid[Y][X] = 0
+        grid[Y][X] = 1
         grid[Y][X-1] = 3
 
     
@@ -55,7 +53,7 @@ def rightclick(event):
     global grid
     getIndex1()
     if X<len(grid[0]) - 1:
-        grid[Y][X] = 0
+        grid[Y][X] = 1
         grid[Y][X+1] = 3
     print(grid)
     
@@ -64,7 +62,7 @@ def upclick(event):
     global grid 
     getIndex1() 
     if Y :
-            grid[Y][X] = 0
+            grid[Y][X] = 1
             grid[Y-1][X] = 3
     print(grid)
     arrayToDrawing()
@@ -72,7 +70,7 @@ def downclick(event):
     global grid
     getIndex1()
     if Y <len(grid)-1:
-            grid[Y][X] = 0
+            grid[Y][X] = 1
             grid[Y+1][X] = 3
     print(grid)
     arrayToDrawing()
