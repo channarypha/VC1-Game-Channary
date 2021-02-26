@@ -13,7 +13,7 @@ def getIndex1():
     global X,Y
     for index in range(len(grid)):
         for i in range(len(grid[0])):
-            if grid[index][i] == 1:
+            if grid[index][i] == 3:
                 Y =index
                 X = i
 
