@@ -2,6 +2,7 @@
 import tkinter as tk
 # Load the library for sounds 
 import winsound
+from tkinter import messagebox
 
 
 # CONSTANTS
@@ -9,6 +10,7 @@ SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 800
 X = -1
 Y = -1
+
 # VARIABLES
 grid = [[0,0,0,0,0,0,0,2,0,5,1,1,1,1,1,1,0,0,0],
         [0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0],
