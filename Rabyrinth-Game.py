@@ -51,7 +51,8 @@ def arrayToDrawing():
                 canvas.create_rectangle(x1, y1, x2, y2, fill = "pink")  
             elif grid[i][j] ==  3 :
                 # canvas.create_rectangle(x1, y1, x2, y2, fill = "black") 
-                Robot= tk.PhotoImage(file='image\\robot.png')
+                canvas.create_image(x1+20,y1+25, image=Robot)
+               
             elif grid[i][j] == 2 :
                 canvas.create_rectangle(x1, y1, x2, y2, fill = "red")
             elif grid[i][j] == 5 :
@@ -129,13 +130,13 @@ root.bind ( " <Up> ", upclick)
 #DOWN CLICK 
 root.bind ( " <Down> ", downclick)  
 
-root.geometry ( str (SCREEN_WIDTH) + "x" + str ( SCREEN_HEIGHT ) )
 
+# main
+root.geometry ( str (SCREEN_WIDTH) + "x" + str ( SCREEN_HEIGHT ) )
 canvas = tk.Canvas (root)
 canvas.pack(expand=True, fill="both")
-# IMAGE
+# images
 Robot= tk.PhotoImage(file='image\\robot.png')
-canvas.create_image(20, 25, image=Robot)
 
 arrayToDrawing()
 
