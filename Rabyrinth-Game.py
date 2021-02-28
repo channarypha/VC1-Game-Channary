@@ -28,8 +28,7 @@ grid = [[0,0,0,0,0,0,0,2,0,5,1,1,1,1,1,1,0,0,0],
         [0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0]]
-# IMAGE
-Robot= tk.PhotoImage(file='image\\robot.png')
+
 
 # FUNCTION
 def getIndex3():
@@ -131,10 +130,12 @@ root.bind ( " <Up> ", upclick)
 root.bind ( " <Down> ", downclick)  
 
 root.geometry ( str (SCREEN_WIDTH) + "x" + str ( SCREEN_HEIGHT ) )
+# IMAGE
+Robot= tk.PhotoImage(file='image\\robot.png')
 
 canvas = tk.Canvas (root)
 canvas.pack(expand=True, fill="both")
-canvas.create_image(20,25, image=Robot)
+canvas.create_image(20, 25, image=Robot)
 arrayToDrawing()
 
 root.mainloop()
