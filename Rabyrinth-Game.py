@@ -130,12 +130,13 @@ root.bind ( " <Up> ", upclick)
 root.bind ( " <Down> ", downclick)  
 
 root.geometry ( str (SCREEN_WIDTH) + "x" + str ( SCREEN_HEIGHT ) )
-# IMAGE
-Robot= tk.PhotoImage(file='image\\robot.png')
 
 canvas = tk.Canvas (root)
 canvas.pack(expand=True, fill="both")
+# IMAGE
+Robot= tk.PhotoImage(file='image\\robot.png')
 canvas.create_image(20, 25, image=Robot)
+
 arrayToDrawing()
 
 root.mainloop()
