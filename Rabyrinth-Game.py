@@ -4,7 +4,6 @@ import tkinter as tk
 import winsound
 from tkinter import messagebox
 
-
 # CONSTANTS
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 800
@@ -29,6 +28,9 @@ grid = [[0,0,0,0,0,0,0,2,0,5,1,1,1,1,1,1,0,0,0],
         [0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0]]
+# IMAGE
+Robot= tk.PhotoImage(file='image\\robot.png')
+
 # FUNCTION
 def getIndex3():
     global X,Y
@@ -49,7 +51,8 @@ def arrayToDrawing():
             if grid[i][j] == 1:
                 canvas.create_rectangle(x1, y1, x2, y2, fill = "pink")  
             elif grid[i][j] ==  3 :
-                canvas.create_rectangle(x1, y1, x2, y2, fill = "black") 
+                # canvas.create_rectangle(x1, y1, x2, y2, fill = "black") 
+                Robot= tk.PhotoImage(file='image\\robot.png')
             elif grid[i][j] == 2 :
                 canvas.create_rectangle(x1, y1, x2, y2, fill = "red")
             elif grid[i][j] == 5 :
@@ -66,7 +69,7 @@ def leftclick(event):
         messagebox.showinfo("DEFEAT", "You lose !")
     elif X and grid[Y][X-1] == 5:
         messagebox.showinfo("SUCCESS", "You win !")
-    # winsound.PlaySound("test.wav", winsound.SND_FILENAME)
+    # winsound.PlaySound("1918.mp3", winsound.SND_FILENAME)
     arrayToDrawing()
     print(grid)
 
@@ -83,7 +86,7 @@ def rightclick(event):
         messagebox.showinfo("DEFEAT", "You lose !")
     elif X<len(grid[0]) - 1 and grid[Y][X+1] == 5:
         messagebox.showinfo("SUCCESS", "You win !")
-    # winsound.PlaySound("test.wav", winsound.SND_FILENAME)
+    # winsound.PlaySound("1918.mp3", winsound.SND_FILENAME)
     print(grid)
     arrayToDrawing()
 def upclick(event):
@@ -96,7 +99,7 @@ def upclick(event):
         messagebox.showinfo("DEFEAT", "You lose !")
     elif Y and grid[Y-1][X] == 5:
         messagebox.showinfo("SUCCESS", "You win !")
-    # winsound.PlaySound("test.wav", winsound.SND_FILENAME)
+    # winsound.PlaySound("1918.mp3", winsound.SND_FILENAME)
     print(grid)
     arrayToDrawing()
 def downclick(event):
@@ -109,7 +112,7 @@ def downclick(event):
         messagebox.showinfo("DEFEAT", "You lose !")
     elif Y <len(grid)-1 and grid[Y+1][X] == 5:
         messagebox.showinfo("SUCCESS", "You win !")
-    # winsound.PlaySound("test.wav", winsound.SND_FILENAME)
+    # winsound.PlaySound("1918.mp3", winsound.SND_FILENAME)
     print(grid)
     arrayToDrawing()
 
@@ -131,6 +134,7 @@ root.geometry ( str (SCREEN_WIDTH) + "x" + str ( SCREEN_HEIGHT ) )
 
 canvas = tk.Canvas (root)
 canvas.pack(expand=True, fill="both")
+canvas.create_image(20,25, image=Robot)
 arrayToDrawing()
 
 root.mainloop()
