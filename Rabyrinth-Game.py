@@ -13,19 +13,19 @@ Y = -1
 # VARIABLES
 grid = [[0,0,0,0,0,0,0,2,0,5,1,1,1,1,1,1,0,0,0],
         [0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0],
-        [0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0],
+        [0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,1,0,0,0],
         [0,0,1,1,1,1,1,1,1,1,1,1,1,2,0,1,1,1,0],
-        [0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0],
-        [0,0,1,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,0],
-        [0,0,1,0,2,0,0,0,0,0,0,0,0,1,0,0,0,0,0],
-        [3,1,1,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0],
+        [0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0],
+        [0,0,1,0,0,0,1,0,0,0,0,0,0,1,1,1,1,1,0],
+        [0,0,1,0,2,0,1,0,0,0,0,0,0,1,0,0,0,0,0],
+        [3,1,1,0,1,0,1,0,0,1,1,1,1,1,0,0,0,0,0],
         [0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2],
-        [0,0,1,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0],
+        [0,0,1,0,0,1,0,0,0,0,0,0,1,1,0,0,0,0,0],
         [2,1,1,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0],
-        [0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0],
-        [0,0,2,1,1,1,0,0,0,0,2,1,1,1,0,0,0,0,0],
-        [0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [1,1,1,0,0,1,0,0,0,0,0,0,0,1,1,1,0,0,0],
+        [0,0,2,1,1,1,0,0,0,0,2,1,1,1,1,0,0,0,0],
+        [0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0],
+        [0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0],
         [0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0]]
 
@@ -51,15 +51,23 @@ def arrayToDrawing():
                 canvas.create_rectangle(x1, y1, x2, y2, fill = "#660066")  
             elif grid[i][j] ==  3 :
                 canvas.create_rectangle(x1, y1, x2, y2, fill = "#660066") 
+
+                # Load the image
                 canvas.create_image(x1+20,y1+15, image=bird)
                
             elif grid[i][j] == 2 :
                 canvas.create_rectangle(x1, y1, x2, y2, fill = "#660066")
+
+                # Load the image
                 canvas.create_image(x1+20,y1+19, image=badbird)
             elif grid[i][j] == 5 :
                 # canvas.create_rectangle(x1, y1, x2, y2, fill = "green")
+
+                # Load the image
                 canvas.create_image(x1+20,y1+20, image=goals)
             elif grid[i][j] == 0:
+
+                # Load the image
                 canvas.create_image(x1+20,y1+21, image=wall)
 
 # draw a line with white and black squares using the global array
@@ -155,7 +163,7 @@ root.bind ( " <Down> ", downclick)
 root.geometry ( str (SCREEN_WIDTH) + "x" + str ( SCREEN_HEIGHT ) )
 canvas = tk.Canvas (root)
 canvas.pack(expand=True, fill="both")
-# images
+# Add the images to the canvas
 bird= tk.PhotoImage(file='cute-bird.png')
 badbird= tk.PhotoImage(file='bad-angrybird.png')
 goals= tk.PhotoImage(file='goal.png')
