@@ -55,6 +55,7 @@ def arrayToDrawing():
                
             elif grid[i][j] == 2 :
                 canvas.create_rectangle(x1, y1, x2, y2, fill = "red")
+                canvas.create_image(x1+20,y1+15, image=badbird)
             elif grid[i][j] == 5 :
                 canvas.create_rectangle(x1, y1, x2, y2, fill = "green")
 
@@ -153,6 +154,7 @@ canvas = tk.Canvas (root)
 canvas.pack(expand=True, fill="both")
 # images
 bird= tk.PhotoImage(file='cute-bird.png')
+badbird= tk.PhotoImage(file='bad-angrybird.png')
 
 arrayToDrawing()
 
