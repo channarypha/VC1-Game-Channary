@@ -53,7 +53,7 @@ def arrayToDrawing():
                 canvas.create_rectangle(x1, y1, x2, y2, fill = "#660066") 
 
                 # Load the image
-                canvas.create_image(x1+20,y1+15, image=bird)
+                canvas.create_image(x1+20,y1+13, image=bird)
                
             elif grid[i][j] == 2 :
                 canvas.create_rectangle(x1, y1, x2, y2, fill = "#660066")
