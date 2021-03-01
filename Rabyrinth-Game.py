@@ -58,6 +58,7 @@ def arrayToDrawing():
                 canvas.create_image(x1+20,y1+15, image=badbird)
             elif grid[i][j] == 5 :
                 canvas.create_rectangle(x1, y1, x2, y2, fill = "green")
+                 canvas.create_image(x1+20,y1+15, image=goals)
 
 # draw a line with white and black squares using the global array
 def leftclick(event):
@@ -155,6 +156,7 @@ canvas.pack(expand=True, fill="both")
 # images
 bird= tk.PhotoImage(file='cute-bird.png')
 badbird= tk.PhotoImage(file='bad-angrybird.png')
+goals= tk.PhotoImage(file='goal.png')
 
 arrayToDrawing()
 
