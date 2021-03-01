@@ -48,9 +48,9 @@ def arrayToDrawing():
             x1 = j*40
             x2 = x1 + 40
             if grid[i][j] == 1:
-                canvas.create_rectangle(x1, y1, x2, y2, fill = "blue")  
+                canvas.create_rectangle(x1, y1, x2, y2, fill = "#660066")  
             elif grid[i][j] ==  3 :
-                canvas.create_rectangle(x1, y1, x2, y2, fill = "blue") 
+                canvas.create_rectangle(x1, y1, x2, y2, fill = "#660066") 
                 canvas.create_image(x1+20,y1+15, image=bird)
                
             elif grid[i][j] == 2 :
