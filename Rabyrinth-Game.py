@@ -41,6 +41,14 @@ arrayOfImages = ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png", "bad-angr
 def score():
     canvas.create_text(40,20, text="Score="+str(Score))
 
+# DISPLAY WIN 
+def win():
+    messagebox.showinfo("SUCCESS", "YOU WIN !")
+
+# DISPLAY LOSE
+def lose():
+    messagebox.showinfo("DEFEAT", "YOU LOSE !")
+
 # FUNCTION TO KNOW POSITION OF PLAYER
 def getIndex3():
     global X,Y
@@ -56,7 +64,7 @@ def arrayToDrawing():
         y1 = 40 * i
         y2 = 40+ y1
         for j in range(len(grid[0])):
-            x1 = j*40 + 300
+            x1 = j*40 #+ 300
             x2 = x1 + 40
             if grid[i][j] == 0:
                 # LOAD THE IMAGE
@@ -89,15 +97,16 @@ def leftclick(event):
         grid[Y][X] = 1
         if grid[Y][X-1] == 2:
             grid[Y][X-1] = 3
-            messagebox.showinfo("DEFEAT", "You lose !")
+            lose()
         if grid[Y][X-1] == 5:
             grid[Y][X-1] = 3
-            messagebox.showinfo("SUCCESS", "You win !")
+            win()
         if grid[Y][X-1] == 4 or grid[Y][X-1] == 6 or grid[Y][X-1] == 1:
             grid[Y][X-1] = 3
             if grid[Y][X-1] == 4 or grid[Y][X-1] == 6 :
                 Score += 1
                 score()
+                print(Score)
     arrayToDrawing()
     print(grid)
 
@@ -109,15 +118,16 @@ def rightclick(event):
         grid[Y][X] = 1
         if grid[Y][X+1] == 2:
             grid[Y][X+1] = 3
-            messagebox.showinfo("DEFEAT", "You lose !")
+            lose()
         if grid[Y][X+1] == 5:
             grid[Y][X+1] = 3
-            messagebox.showinfo("SUCCESS", "You win !")
+            win()
         if grid[Y][X+1] == 4 or grid[Y][X+1] == 6 or grid[Y][X+1] == 1:
             grid[Y][X+1] = 3
             if grid[Y][X+1] == 4 or grid[Y][X+1] == 6 :
                 Score += 1
                 score()
+                print(Score)
     print(grid)
     arrayToDrawing()
 
@@ -129,15 +139,16 @@ def upclick(event):
         grid[Y][X] = 1
         if grid[Y-1][X] == 2:
             grid[Y-1][X] = 3
-            messagebox.showinfo("DEFEAT", "You lose !")
+            lose()
         if grid[Y-1][X] == 5:
             grid[Y-1][X] = 3
-            messagebox.showinfo("SUCCESS", "You win !")
+            win()
         if grid[Y-1][X] == 4 or grid[Y-1][X] == 6 or grid[Y-1][X] == 1:
             grid[Y-1][X] = 3
             if grid[Y-1][X] == 4 or grid[Y-1][X] == 6 :
                 Score += 1
                 score()
+                print(Score)
     print(grid)
     arrayToDrawing()
 
@@ -149,15 +160,16 @@ def downclick(event):
         grid[Y][X] = 1
         if grid[Y+1][X] == 2:
             grid[Y+1][X] = 3
-            messagebox.showinfo("DEFEAT", "You lose !")
+            lose()
         if grid[Y+1][X] == 5:
             grid[Y+1][X] = 3
-            messagebox.showinfo("SUCCESS", "You win !")
+            win()
         if grid[Y+1][X] == 4 or grid[Y+1][X] == 6 or grid[Y+1][X] == 1:
             grid[Y+1][X] = 3
             if grid[Y+1][X] == 4 or grid[Y+1][X] == 6 :
                 Score += 1
                 score()
+                print(Score)
     print(grid)
     arrayToDrawing()
 
