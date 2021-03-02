@@ -160,6 +160,10 @@ def downclick(event):
     print(grid)
     arrayToDrawing()
 
+# SCORE TEXT
+
+
+
 # PLAY THE SOUND 
 # winsound.PlaySound("test.wav", winsound.SND_FILENAME)
 
@@ -196,4 +200,4 @@ root.mainloop()
 # 3.CUTE BIRD OF PLAYER
 # 4.FOOD OR COIN OR ANYTHING ELSE
 # 5.GOAL
-# 6.PIZZA
+# 6.CAKE
