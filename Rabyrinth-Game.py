@@ -92,7 +92,7 @@ def arrayToDrawing():
 def leftclick(event):
     global grid
     getIndex3()
-    if X and grid[Y][X-1] == 1 or grid[Y][X-1] == 2 or grid[Y][X-1] == 5:
+    if X and grid[Y][X-1] == 1 or grid[Y][X-1] == 2 or grid[Y][X-1] == 5 or grid[Y][X-1] == 4 or grid[Y][X-1] == 6:
         grid[Y][X] = 1
         if grid[Y][X-1] == 2:
             grid[Y][X-1] = 3
@@ -100,6 +100,8 @@ def leftclick(event):
         if grid[Y][X-1] == 5:
             grid[Y][X-1] = 3
             messagebox.showinfo("SUCCESS", "You win !")
+        if grid[Y][X-1] == 4 or grid[Y][X-1] == 6 or grid[Y][X-1] == 1:
+            grid[Y][X-1] = 3
     # winsound.PlaySound("1918.mp3", winsound.SND_FILENAME)
     arrayToDrawing()
     print(grid)
@@ -108,16 +110,16 @@ def leftclick(event):
 def rightclick(event):
     global grid
     getIndex3()
-    if X<len(grid[0]) - 1 and grid[Y][X+1] == 1 or grid[Y][X+1] == 2 or grid[Y][X+1] == 5:
+    if X<len(grid[0]) - 1 and grid[Y][X+1] == 1 or grid[Y][X+1] == 2 or grid[Y][X+1] == 5 or grid[Y][X+1] == 4 or grid[Y][X+1] == 6:
         grid[Y][X] = 1
-        if grid[Y][X+1] == 1:
-            grid[Y][X+1] = 3
         if grid[Y][X+1] == 2:
             grid[Y][X+1] = 3
             messagebox.showinfo("DEFEAT", "You lose !")
         if grid[Y][X+1] == 5:
             grid[Y][X+1] = 3
             messagebox.showinfo("SUCCESS", "You win !")
+        if grid[Y][X+1] == 4 or grid[Y][X+1] == 6 or grid[Y][X+1] == 1:
+            grid[Y][X+1] = 3
     # winsound.PlaySound("1918.mp3", winsound.SND_FILENAME)
     print(grid)
     arrayToDrawing()
@@ -126,16 +128,16 @@ def rightclick(event):
 def upclick(event):
     global grid 
     getIndex3() 
-    if Y and grid[Y-1][X] == 1 or grid[Y-1][X] == 2 or grid[Y-1][X] == 5:
+    if Y and grid[Y-1][X] == 1 or grid[Y-1][X] == 2 or grid[Y-1][X] == 5 or grid[Y-1][X] == 4 or grid[Y-1][X] == 6:
         grid[Y][X] = 1
-        if grid[Y-1][X] == 1:
-            grid[Y-1][X] = 3
         if grid[Y-1][X] == 2:
             grid[Y-1][X] = 3
             messagebox.showinfo("DEFEAT", "You lose !")
         if grid[Y-1][X] == 5:
             grid[Y-1][X] = 3
             messagebox.showinfo("SUCCESS", "You win !")
+        if grid[Y-1][X] == 4 or grid[Y-1][X] == 6 or grid[Y-1][X] == 1:
+            grid[Y-1][X] = 3
     # winsound.PlaySound("1918.mp3", winsound.SND_FILENAME)
     print(grid)
     arrayToDrawing()
@@ -144,16 +146,16 @@ def upclick(event):
 def downclick(event):
     global grid
     getIndex3()
-    if Y <len(grid)-1 and grid[Y+1][X] == 1 or grid[Y+1][X] == 2 or grid[Y+1][X] == 5:
+    if Y <len(grid)-1 and grid[Y+1][X] == 1 or grid[Y+1][X] == 2 or grid[Y+1][X] == 5 or grid[Y+1][X] == 4 or grid[Y+1][X] == 6:
         grid[Y][X] = 1
-        if grid[Y+1][X] == 1:
-            grid[Y+1][X] = 3
         if grid[Y+1][X] == 2:
             grid[Y+1][X] = 3
             messagebox.showinfo("DEFEAT", "You lose !")
         if grid[Y+1][X] == 5:
             grid[Y+1][X] = 3
             messagebox.showinfo("SUCCESS", "You win !")
+        if grid[Y+1][X] == 4 or grid[Y+1][X] == 6 or grid[Y+1][X] == 1:
+            grid[Y+1][X] = 3
     # winsound.PlaySound("1918.mp3", winsound.SND_FILENAME)
     print(grid)
     arrayToDrawing()
