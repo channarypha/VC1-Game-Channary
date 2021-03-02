@@ -15,21 +15,21 @@ Y = -1
 
 # VARIABLES
 grid = [[0,0,1,1,1,4,1,2,0,5,1,1,1,1,1,1,2,0,0],
-        [0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,4,1,0,0],
+        [0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,6,1,0,0],
         [0,0,4,0,0,0,0,1,0,0,1,0,0,1,0,1,0,0,1],
         [0,0,1,1,1,4,1,1,1,1,1,1,1,2,0,1,1,1,1],
         [0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,4,0],
         [1,1,1,0,0,0,1,0,0,0,0,0,0,1,1,1,1,1,0],
-        [0,1,1,0,2,0,1,0,0,0,0,0,0,4,0,0,0,0,0],
+        [0,1,1,0,2,0,1,0,0,0,0,0,0,6,0,0,0,0,0],
         [3,1,4,0,1,0,1,0,0,1,1,1,1,1,0,0,0,0,0],
-        [0,0,1,1,1,4,1,1,1,1,4,1,4,1,1,1,1,1,2],
+        [0,0,1,1,1,6,1,1,1,1,6,1,4,1,1,1,1,1,2],
         [0,0,1,0,0,1,0,0,0,0,0,0,1,1,0,0,0,0,0],
         [2,1,1,4,1,4,0,0,0,0,0,0,2,1,0,0,0,0,0],
-        [1,1,4,0,0,1,1,2,1,0,0,0,0,1,1,4,0,0,0],
+        [1,1,6,0,0,1,1,2,1,0,0,0,0,1,1,4,0,0,0],
         [0,0,2,1,1,1,0,1,0,0,2,1,4,1,1,1,0,0,1],
         [0,0,0,0,0,1,0,0,0,0,0,1,0,0,1,1,1,4,1],
-        [1,4,1,0,0,1,0,0,0,0,0,0,0,1,1,1,0,0,0],
-        [0,1,1,0,1,1,1,0,0,0,0,4,1,1,0,2,1,1,0],
+        [1,6,1,0,0,1,0,0,0,0,0,0,0,1,1,1,0,0,0],
+        [0,1,1,0,1,1,1,0,0,0,0,6,1,1,0,2,1,1,0],
         [0,0,1,1,1,2,1,0,0,1,1,1,0,0,0,0,1,0,0]]
 
 # ARRAY OF IMAGES
@@ -75,12 +75,18 @@ def arrayToDrawing():
                     # canvas.create_rectangle(x1, y1, x2, y2, fill = "#660066") 
 
                     # LOAD THE IMAGE
-                    canvas.create_image(x1+20,y1+13, image=cake)
+                    canvas.create_image(x1+20,y1+20, image=cakea)
                 elif grid[i][j] == 5 :
                     # canvas.create_rectangle(x1, y1, x2, y2, fill = "green")
 
                     # LOAD THE IMAGE
                     canvas.create_image(x1+20,y1+20, image=goals)
+                elif grid[i][j] == 6 :
+                    # canvas.create_rectangle(x1, y1, x2, y2, fill = "green")
+
+                    # LOAD THE IMAGE
+                    canvas.create_image(x1+20,y1+13, image=cakeb)
+
 
 # FUNCTION LEFT CLICK
 def leftclick(event):
@@ -176,7 +182,8 @@ bird= tk.PhotoImage(file='cute-bird.png')
 badbird= tk.PhotoImage(file=random.choice(arrayOfImages))
 goals= tk.PhotoImage(file='goal.png')
 wall= tk.PhotoImage(file='wall.png')
-cake= tk.PhotoImage(file='b.png')
+cakea= tk.PhotoImage(file='a.png')
+cakeb= tk.PhotoImage(file='b.png')
 # CALL FUNCTION TO DRAW
 arrayToDrawing()
 # CALL ROOT
@@ -187,3 +194,4 @@ root.mainloop()
 # 3.CUTE BIRD OF PLAYER
 # 4.FOOD OR COIN OR ANYTHING ELSE
 # 5.GOAL
+# 6.PIZZA
