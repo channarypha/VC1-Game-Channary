@@ -60,17 +60,22 @@ def arrayToDrawing():
             else:
                 # if grid[i][j] == 1:
                 canvas.create_rectangle(x1, y1, x2, y2, fill = "#660066")  
-                if grid[i][j] ==  3 :
-                    # canvas.create_rectangle(x1, y1, x2, y2, fill = "#660066") 
-
-                    # LOAD THE IMAGE
-                    canvas.create_image(x1+20,y1+13, image=bird)
                 
-                elif grid[i][j] == 2 :
+                if grid[i][j] == 2 :
                     # canvas.create_rectangle(x1, y1, x2, y2, fill = "#660066")
 
                     # LOAD THE IMAGE
                     canvas.create_image(x1+20,y1+19, image=badbird)
+                elif grid[i][j] ==  3 :
+                    # canvas.create_rectangle(x1, y1, x2, y2, fill = "#660066") 
+
+                    # LOAD THE IMAGE
+                    canvas.create_image(x1+20,y1+13, image=bird)
+                elif grid[i][j] ==  4 :
+                    # canvas.create_rectangle(x1, y1, x2, y2, fill = "#660066") 
+
+                    # LOAD THE IMAGE
+                    canvas.create_image(x1+20,y1+13, image=cake)
                 elif grid[i][j] == 5 :
                     # canvas.create_rectangle(x1, y1, x2, y2, fill = "green")
 
@@ -171,6 +176,7 @@ bird= tk.PhotoImage(file='cute-bird.png')
 badbird= tk.PhotoImage(file=random.choice(arrayOfImages))
 goals= tk.PhotoImage(file='goal.png')
 wall= tk.PhotoImage(file='wall.png')
+cake= tk.PhotoImage(file='b.png')
 # CALL FUNCTION TO DRAW
 arrayToDrawing()
 # CALL ROOT
