@@ -83,10 +83,11 @@ def leftclick(event):
     getIndex3()
     if X and grid[Y][X-1] == 1 or grid[Y][X-1] == 2 or grid[Y][X-1] == 5:
         grid[Y][X] = 1
-        grid[Y][X-1] = 3
         if grid[Y][X-1] == 2:
+            grid[Y][X-1] = 3
             messagebox.showinfo("DEFEAT", "You lose !")
         if grid[Y][X-1] == 5:
+            grid[Y][X-1] = 3
             messagebox.showinfo("SUCCESS", "You win !")
     # winsound.PlaySound("1918.mp3", winsound.SND_FILENAME)
     arrayToDrawing()
@@ -98,10 +99,13 @@ def rightclick(event):
     getIndex3()
     if X<len(grid[0]) - 1 and grid[Y][X+1] == 1 or grid[Y][X+1] == 2 or grid[Y][X+1] == 5:
         grid[Y][X] = 1
-        grid[Y][X+1] = 3
+        if grid[Y][X+1] == 1:
+            grid[Y][X+1] = 3
         if grid[Y][X+1] == 2:
+            grid[Y][X+1] = 3
             messagebox.showinfo("DEFEAT", "You lose !")
         if grid[Y][X+1] == 5:
+            grid[Y][X+1] = 3
             messagebox.showinfo("SUCCESS", "You win !")
     # winsound.PlaySound("1918.mp3", winsound.SND_FILENAME)
     print(grid)
@@ -113,10 +117,13 @@ def upclick(event):
     getIndex3() 
     if Y and grid[Y-1][X] == 1 or grid[Y-1][X] == 2 or grid[Y-1][X] == 5:
         grid[Y][X] = 1
-        grid[Y-1][X] = 3
+        if grid[Y-1][X] == 1:
+            grid[Y-1][X] = 3
         if grid[Y-1][X] == 2:
+            grid[Y-1][X] = 3
             messagebox.showinfo("DEFEAT", "You lose !")
         if grid[Y-1][X] == 5:
+            grid[Y-1][X] = 3
             messagebox.showinfo("SUCCESS", "You win !")
     # winsound.PlaySound("1918.mp3", winsound.SND_FILENAME)
     print(grid)
@@ -128,10 +135,13 @@ def downclick(event):
     getIndex3()
     if Y <len(grid)-1 and grid[Y+1][X] == 1 or grid[Y+1][X] == 2 or grid[Y+1][X] == 5:
         grid[Y][X] = 1
-        grid[Y+1][X] = 3
+        if grid[Y+1][X] == 1:
+            grid[Y+1][X] = 3
         if grid[Y+1][X] == 2:
+            grid[Y+1][X] = 3
             messagebox.showinfo("DEFEAT", "You lose !")
         if grid[Y+1][X] == 5:
+            grid[Y+1][X] = 3
             messagebox.showinfo("SUCCESS", "You win !")
     # winsound.PlaySound("1918.mp3", winsound.SND_FILENAME)
     print(grid)
