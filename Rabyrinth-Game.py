@@ -32,7 +32,7 @@ grid = [[0,0,1,1,1,1,1,2,0,5,1,1,1,1,1,1,0,0,0],
         [0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0]]
 
-arrayOfImages = []
+arrayOfImages = ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png", "bad-angrybird.png"]
 
 # FUNCTION
 def getIndex3():
@@ -171,7 +171,7 @@ canvas = tk.Canvas (root)
 canvas.pack(expand=True, fill="both")
 # ADD THE IMAGES TO THE CANVAS
 bird= tk.PhotoImage(file='cute-bird.png')
-badbird= tk.PhotoImage(file='bad-angrybird.png')
+badbird= tk.PhotoImage(file=random.choice(arrayOfImages))
 goals= tk.PhotoImage(file='goal.png')
 wall= tk.PhotoImage(file='wall.png')
 
