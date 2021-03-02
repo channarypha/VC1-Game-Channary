@@ -1,10 +1,10 @@
-# IMPORTS
+# IMPORTS TK
 import tkinter as tk
 # LOAD THE LIBRARY FOR SOUND
 import winsound
 # IMAPORT MESSAGE
 from tkinter import messagebox
-# RANDOM
+# RANDOM IMPORT
 import random
 
 # CONSTANTS
@@ -32,9 +32,10 @@ grid = [[0,0,1,1,1,1,1,2,0,5,1,1,1,1,1,1,0,0,0],
         [0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0]]
 
+# ARRAY OF IMAGES
 arrayOfImages = ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png", "bad-angrybird.png"]
 
-# FUNCTION
+# FUNCTION TO KNOW POSITION OF PLAYER
 def getIndex3():
     global X,Y
     for index in range(len(grid)):
@@ -43,13 +44,13 @@ def getIndex3():
                 Y =index
                 X = i
 
-
+# FUNCTION TO DRAW
 def arrayToDrawing():
     for i in range(len(grid)):
         y1 = 40 * i
         y2 = 40+ y1
         for j in range(len(grid[0])):
-            x1 = j*40
+            x1 = j*40 + 300
             x2 = x1 + 40
             
             if grid[i][j] == 0:
@@ -76,7 +77,7 @@ def arrayToDrawing():
                     # LOAD THE IMAGE
                     canvas.create_image(x1+20,y1+20, image=goals)
 
-# DRAW A LINE WITH WHITE AND BLACK SQUARES USING THE GLOABAL ARRAY
+# FUNCTION LEFT CLICK
 def leftclick(event):
     global grid
     getIndex3()
@@ -95,9 +96,7 @@ def leftclick(event):
     arrayToDrawing()
     print(grid)
 
-    # CALL AGAIN THE DRAW
-
-    
+# FUNCTION RIGHTCLICK
 def rightclick(event):
     global grid
     getIndex3()
@@ -115,6 +114,8 @@ def rightclick(event):
     # winsound.PlaySound("1918.mp3", winsound.SND_FILENAME)
     print(grid)
     arrayToDrawing()
+
+# FUNCTION UPCLICK
 def upclick(event):
     global grid 
     getIndex3() 
@@ -132,6 +133,8 @@ def upclick(event):
     # winsound.PlaySound("1918.mp3", winsound.SND_FILENAME)
     print(grid)
     arrayToDrawing()
+
+# FUNCTION DOWNCLICK
 def downclick(event):
     global grid
     getIndex3()
@@ -174,7 +177,13 @@ bird= tk.PhotoImage(file='cute-bird.png')
 badbird= tk.PhotoImage(file=random.choice(arrayOfImages))
 goals= tk.PhotoImage(file='goal.png')
 wall= tk.PhotoImage(file='wall.png')
-
+# CALL FUNCTION TO DRAW
 arrayToDrawing()
-
+# CALL ROOT
 root.mainloop()
+
+# 1.BLUE GRID
+# 2.ENEMIES
+# 3.CUTE BIRD OF PLAYER
+# 4.FOOD OR COIN OR ANYTHING ELSE
+# 5.GOAL
