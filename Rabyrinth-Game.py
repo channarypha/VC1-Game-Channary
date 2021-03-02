@@ -12,8 +12,10 @@ SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 800
 X = -1
 Y = -1
+# VARIABLE OF SCORE
+Score = 0
 
-# VARIABLES
+# VARIABLES OF GRID (ARRAY 2D)
 grid = [[0,0,1,1,1,4,1,2,0,5,1,1,1,1,1,1,2,0,0],
         [0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,6,1,0,0],
         [0,0,4,0,0,0,0,1,0,0,1,0,0,1,0,1,0,0,1],
@@ -35,6 +37,10 @@ grid = [[0,0,1,1,1,4,1,2,0,5,1,1,1,1,1,1,2,0,0],
 # ARRAY OF IMAGES
 arrayOfImages = ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png", "bad-angrybird.png"]
 
+# SCORE TEXT
+def score():
+    canvas.create_text(40,20, text="Score="+str(Score))
+
 # FUNCTION TO KNOW POSITION OF PLAYER
 def getIndex3():
     global X,Y
@@ -52,45 +58,32 @@ def arrayToDrawing():
         for j in range(len(grid[0])):
             x1 = j*40 + 300
             x2 = x1 + 40
-            
             if grid[i][j] == 0:
-
                 # LOAD THE IMAGE
                 canvas.create_image(x1+20,y1+21, image=wall)
             else:
                 # if grid[i][j] == 1:
                 canvas.create_rectangle(x1, y1, x2, y2, fill = "#660066")  
-                
                 if grid[i][j] == 2 :
-                    # canvas.create_rectangle(x1, y1, x2, y2, fill = "#660066")
-
                     # LOAD THE IMAGE
                     canvas.create_image(x1+20,y1+19, image=badbird)
                 elif grid[i][j] ==  3 :
-                    # canvas.create_rectangle(x1, y1, x2, y2, fill = "#660066") 
-
                     # LOAD THE IMAGE
                     canvas.create_image(x1+20,y1+13, image=bird)
                 elif grid[i][j] ==  4 :
-                    # canvas.create_rectangle(x1, y1, x2, y2, fill = "#660066") 
-
                     # LOAD THE IMAGE
                     canvas.create_image(x1+20,y1+20, image=cakea)
                 elif grid[i][j] == 5 :
-                    # canvas.create_rectangle(x1, y1, x2, y2, fill = "green")
-
                     # LOAD THE IMAGE
                     canvas.create_image(x1+20,y1+20, image=goals)
                 elif grid[i][j] == 6 :
-                    # canvas.create_rectangle(x1, y1, x2, y2, fill = "green")
-
                     # LOAD THE IMAGE
                     canvas.create_image(x1+20,y1+13, image=cakeb)
 
 
 # FUNCTION LEFT CLICK
 def leftclick(event):
-    global grid
+    global grid, Score
     getIndex3()
     if X and grid[Y][X-1] == 1 or grid[Y][X-1] == 2 or grid[Y][X-1] == 5 or grid[Y][X-1] == 4 or grid[Y][X-1] == 6:
         grid[Y][X] = 1
@@ -102,13 +95,15 @@ def leftclick(event):
             messagebox.showinfo("SUCCESS", "You win !")
         if grid[Y][X-1] == 4 or grid[Y][X-1] == 6 or grid[Y][X-1] == 1:
             grid[Y][X-1] = 3
-    # winsound.PlaySound("1918.mp3", winsound.SND_FILENAME)
+            if grid[Y][X-1] == 4 or grid[Y][X-1] == 6 :
+                Score += 1
+                score()
     arrayToDrawing()
     print(grid)
 
 # FUNCTION RIGHTCLICK
 def rightclick(event):
-    global grid
+    global grid, Score
     getIndex3()
     if X<len(grid[0]) - 1 and grid[Y][X+1] == 1 or grid[Y][X+1] == 2 or grid[Y][X+1] == 5 or grid[Y][X+1] == 4 or grid[Y][X+1] == 6:
         grid[Y][X] = 1
@@ -120,13 +115,15 @@ def rightclick(event):
             messagebox.showinfo("SUCCESS", "You win !")
         if grid[Y][X+1] == 4 or grid[Y][X+1] == 6 or grid[Y][X+1] == 1:
             grid[Y][X+1] = 3
-    # winsound.PlaySound("1918.mp3", winsound.SND_FILENAME)
+            if grid[Y][X+1] == 4 or grid[Y][X+1] == 6 :
+                Score += 1
+                score()
     print(grid)
     arrayToDrawing()
 
 # FUNCTION UPCLICK
 def upclick(event):
-    global grid 
+    global grid, Score
     getIndex3() 
     if Y and grid[Y-1][X] == 1 or grid[Y-1][X] == 2 or grid[Y-1][X] == 5 or grid[Y-1][X] == 4 or grid[Y-1][X] == 6:
         grid[Y][X] = 1
@@ -138,13 +135,15 @@ def upclick(event):
             messagebox.showinfo("SUCCESS", "You win !")
         if grid[Y-1][X] == 4 or grid[Y-1][X] == 6 or grid[Y-1][X] == 1:
             grid[Y-1][X] = 3
-    # winsound.PlaySound("1918.mp3", winsound.SND_FILENAME)
+            if grid[Y-1][X] == 4 or grid[Y-1][X] == 6 :
+                Score += 1
+                score()
     print(grid)
     arrayToDrawing()
 
 # FUNCTION DOWNCLICK
 def downclick(event):
-    global grid
+    global grid, Score
     getIndex3()
     if Y <len(grid)-1 and grid[Y+1][X] == 1 or grid[Y+1][X] == 2 or grid[Y+1][X] == 5 or grid[Y+1][X] == 4 or grid[Y+1][X] == 6:
         grid[Y][X] = 1
@@ -156,17 +155,14 @@ def downclick(event):
             messagebox.showinfo("SUCCESS", "You win !")
         if grid[Y+1][X] == 4 or grid[Y+1][X] == 6 or grid[Y+1][X] == 1:
             grid[Y+1][X] = 3
-    # winsound.PlaySound("1918.mp3", winsound.SND_FILENAME)
+            if grid[Y+1][X] == 4 or grid[Y+1][X] == 6 :
+                Score += 1
+                score()
     print(grid)
     arrayToDrawing()
 
-# SCORE TEXT
-
-
-
 # PLAY THE SOUND 
 # winsound.PlaySound("test.wav", winsound.SND_FILENAME)
-
 
 root = tk.Tk()
 #LEFT CLICK
@@ -178,6 +174,10 @@ root.bind ( " <Up> ", upclick)
 #DOWN CLICK 
 root.bind ( " <Down> ", downclick)  
 
+# str_score = tk.StringVar()
+# score_label = tk.Label(root, textvariable = str_score, font = ('Regular script', 20), width = 15, height = 1)
+# str_score.set('Your Score:' + str(Score))
+# score_label.place(x = 50, y = 580)
 
 # MAIN
 root.geometry ( str (SCREEN_WIDTH) + "x" + str ( SCREEN_HEIGHT ) )
