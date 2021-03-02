@@ -1,8 +1,11 @@
 # IMPORTS
 import tkinter as tk
-# Load the library for sounds 
+# LOAD THE LIBRARY FOR SOUND
 import winsound
+# IMAPORT MESSAGE
 from tkinter import messagebox
+# RANDOM
+import random
 
 # CONSTANTS
 SCREEN_WIDTH = 800
@@ -29,6 +32,7 @@ grid = [[0,0,1,1,1,1,1,2,0,5,1,1,1,1,1,1,0,0,0],
         [0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0]]
 
+arrayOfImages = []
 
 # FUNCTION
 def getIndex3():
@@ -47,30 +51,32 @@ def arrayToDrawing():
         for j in range(len(grid[0])):
             x1 = j*40
             x2 = x1 + 40
-            if grid[i][j] == 1:
-                canvas.create_rectangle(x1, y1, x2, y2, fill = "#660066")  
-            elif grid[i][j] ==  3 :
-                canvas.create_rectangle(x1, y1, x2, y2, fill = "#660066") 
+            
+            if grid[i][j] == 0:
 
-                # Load the image
-                canvas.create_image(x1+20,y1+13, image=bird)
-               
-            elif grid[i][j] == 2 :
-                canvas.create_rectangle(x1, y1, x2, y2, fill = "#660066")
-
-                # Load the image
-                canvas.create_image(x1+20,y1+19, image=badbird)
-            elif grid[i][j] == 5 :
-                # canvas.create_rectangle(x1, y1, x2, y2, fill = "green")
-
-                # Load the image
-                canvas.create_image(x1+20,y1+20, image=goals)
-            elif grid[i][j] == 0:
-
-                # Load the image
+                # LOAD THE IMAGE
                 canvas.create_image(x1+20,y1+21, image=wall)
+            else:
+                # if grid[i][j] == 1:
+                canvas.create_rectangle(x1, y1, x2, y2, fill = "#660066")  
+                if grid[i][j] ==  3 :
+                    # canvas.create_rectangle(x1, y1, x2, y2, fill = "#660066") 
 
-# draw a line with white and black squares using the global array
+                    # LOAD THE IMAGE
+                    canvas.create_image(x1+20,y1+13, image=bird)
+                
+                elif grid[i][j] == 2 :
+                    # canvas.create_rectangle(x1, y1, x2, y2, fill = "#660066")
+
+                    # LOAD THE IMAGE
+                    canvas.create_image(x1+20,y1+19, image=badbird)
+                elif grid[i][j] == 5 :
+                    # canvas.create_rectangle(x1, y1, x2, y2, fill = "green")
+
+                    # LOAD THE IMAGE
+                    canvas.create_image(x1+20,y1+20, image=goals)
+
+# DRAW A LINE WITH WHITE AND BLACK SQUARES USING THE GLOABAL ARRAY
 def leftclick(event):
     global grid
     getIndex3()
@@ -89,7 +95,7 @@ def leftclick(event):
     arrayToDrawing()
     print(grid)
 
-    # call again the draw
+    # CALL AGAIN THE DRAW
 
     
 def rightclick(event):
@@ -144,7 +150,7 @@ def downclick(event):
     print(grid)
     arrayToDrawing()
 
-# Play the sound 
+# PLAY THE SOUND 
 # winsound.PlaySound("test.wav", winsound.SND_FILENAME)
 
 
@@ -159,11 +165,11 @@ root.bind ( " <Up> ", upclick)
 root.bind ( " <Down> ", downclick)  
 
 
-# main
+# MAIN
 root.geometry ( str (SCREEN_WIDTH) + "x" + str ( SCREEN_HEIGHT ) )
 canvas = tk.Canvas (root)
 canvas.pack(expand=True, fill="both")
-# Add the images to the canvas
+# ADD THE IMAGES TO THE CANVAS
 bird= tk.PhotoImage(file='cute-bird.png')
 badbird= tk.PhotoImage(file='bad-angrybird.png')
 goals= tk.PhotoImage(file='goal.png')
