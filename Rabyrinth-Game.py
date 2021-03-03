@@ -52,6 +52,9 @@ def win():
 def lose():
     messagebox.showinfo("DEFEAT", "YOU LOSE !")
 
+# RANDOM IMAGES OF ENEMIES
+# def randomEnemies():
+
 # FUNCTION TO KNOW POSITION OF PLAYER
 def getIndex3():
     global X,Y
