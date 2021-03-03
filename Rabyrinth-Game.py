@@ -78,7 +78,7 @@ def arrayToDrawing():
             x2 = x1 + 40
             if grid[i][j] == 0:
                 # LOAD THE IMAGE
-                canvas.create_image(x1+20,y1+21, image=wall)
+                canvas.create_image(x1+22,y1+24, image=wall)
             else:
                 # if grid[i][j] == 1:
                 canvas.create_rectangle(x1, y1, x2, y2, fill = "#660066")  
