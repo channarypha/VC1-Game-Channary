@@ -49,10 +49,12 @@ def score():
 # DISPLAY WIN 
 def win():
     messagebox.showinfo("SUCCESS", "YOU WIN !")
+    winsound()
 
 # DISPLAY LOSE
 def lose():
     messagebox.showinfo("DEFEAT", "YOU LOSE !")
+    gameoversound()
 
 # RANDOM IMAGES OF ENEMIES
 # def randomEnemies():
@@ -186,14 +188,14 @@ def downclick(event):
     arrayToDrawing()
 
 # PLAY THE SOUND 
-# def winsound() :
-#     winsound.PlaySound("win.wav", winsound.SND_FILENAME)
-# def gameoversound() :
-#     winsound.PlaySound("gameover.wav", winsound.SND_FILENAME)
-# def eatsound() :
-#     winsound.PlaySound("eat.wav", winsound.SND_FILENAME)
-# def errorsound() :
-#     winsound.PlaySound("error.wav", winsound.SND_FILENAME)
+def winsound() :
+    winsound.PlaySound("win.wav", winsound.SND_FILENAME)
+def gameoversound() :
+    winsound.PlaySound("gameover.wav", winsound.SND_FILENAME)
+def eatsound() :
+    winsound.PlaySound("eat.wav", winsound.SND_FILENAME)
+def errorsound() :
+    winsound.PlaySound("error.wav", winsound.SND_FILENAME)
 
 root = tk.Tk()
 #LEFT CLICK
