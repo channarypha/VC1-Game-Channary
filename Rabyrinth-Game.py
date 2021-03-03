@@ -67,7 +67,7 @@ def getIndex3():
 # FUNCTION TO DRAW
 def arrayToDrawing():
     for i in range(len(grid)):
-        y1 = 40 * i +100
+        y1 = 40 * i 
         y2 = 40+ y1
         for j in range(len(grid[0])):
             x1 = j*40 #+ 300
@@ -192,10 +192,11 @@ root.bind ( " <Up> ", upclick)
 #DOWN CLICK 
 root.bind ( " <Down> ", downclick)  
 
-# str_score = tk.StringVar()
-# score_label = tk.Label(root, textvariable = str_score, font = ('Regular script', 20), width = 15, height = 1)
-# str_score.set('Your Score:' + str(Score))
-# score_label.place(x = 0, y = 20)
+# SCORE
+str_score = tk.StringVar()
+score_label = tk.Label(root, textvariable = str_score, font = ('Regular script', 20), width = 15, height = 1)
+str_score.set('Your Score:' + str(Score))
+score_label.place(x = 0, y = 20)
 # put_a_background(canvas)
 
 # MAIN
