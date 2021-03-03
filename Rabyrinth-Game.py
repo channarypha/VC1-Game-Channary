@@ -180,7 +180,7 @@ def downclick(event):
     arrayToDrawing()
 
 # PLAY THE SOUND 
-# winsound.PlaySound("test.wav", winsound.SND_FILENAME)
+winsound.PlaySound("win.wav", winsound.SND_FILENAME)
 
 root = tk.Tk()
 #LEFT CLICK
@@ -192,10 +192,10 @@ root.bind ( " <Up> ", upclick)
 #DOWN CLICK 
 root.bind ( " <Down> ", downclick)  
 
-str_score = tk.StringVar()
-score_label = tk.Label(root, textvariable = str_score, font = ('Regular script', 20), width = 15, height = 1)
-str_score.set('Your Score:' + str(Score))
-score_label.place(x = 0, y = 20)
+# str_score = tk.StringVar()
+# score_label = tk.Label(root, textvariable = str_score, font = ('Regular script', 20), width = 15, height = 1)
+# str_score.set('Your Score:' + str(Score))
+# score_label.place(x = 0, y = 20)
 # put_a_background(canvas)
 
 # MAIN
