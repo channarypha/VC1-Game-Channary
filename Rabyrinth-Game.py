@@ -49,12 +49,12 @@ def score():
 # DISPLAY WIN 
 def win():
     messagebox.showinfo("SUCCESS", "YOU WIN !")
-    winsound()
+    # winsound()
 
 # DISPLAY LOSE
 def lose():
     messagebox.showinfo("DEFEAT", "YOU LOSE !")
-    gameoversound()
+    # gameoversound()
 
 # RANDOM IMAGES OF ENEMIES
 # def randomEnemies():
