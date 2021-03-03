@@ -23,15 +23,15 @@ grid = [[7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7],
         [7,0,0,4,0,0,0,0,1,0,0,1,0,0,1,0,1,0,0,1,7],
         [7,0,0,1,1,1,4,1,1,1,1,6,1,1,2,0,1,1,1,1,7],
         [7,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,4,1,7],
-        [7,1,1,1,0,0,0,1,0,0,0,0,0,0,1,1,1,1,1,0,7],
+        [7,2,6,1,0,0,0,1,0,0,0,0,0,0,1,1,1,1,1,0,7],
         [7,0,1,1,0,2,0,1,0,0,0,0,0,0,6,0,0,0,0,1,7],
         [7,3,1,4,0,1,0,1,0,0,1,1,1,1,1,0,0,0,1,1,7],
         [7,0,0,1,1,1,6,1,1,0,1,6,1,4,1,1,1,1,1,2,7],
         [7,0,0,1,0,0,1,1,1,0,0,0,0,1,1,0,0,0,1,1,7],
         [7,2,1,1,4,1,4,0,0,1,0,0,1,2,1,1,0,0,0,0,7],
-        [7,1,1,6,0,1,4,1,2,1,0,1,1,0,0,1,4,0,0,0,7],
+        [7,1,1,6,0,1,6,1,2,1,0,1,1,0,0,1,6,0,0,0,7],
         [7,0,1,2,1,1,1,0,0,0,1,2,0,4,1,1,1,0,0,1,7],
-        [7,0,1,0,0,0,1,1,1,0,0,1,1,0,0,1,1,1,4,1,7],
+        [7,0,1,0,0,0,1,4,1,0,0,1,1,0,0,1,1,1,4,1,7],
         [7,1,6,1,0,0,1,1,0,0,0,1,0,1,4,1,0,0,0,0,7],
         [7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7]]
 
@@ -43,18 +43,19 @@ def score():
     global Score
     # canvas.create_text(40,20, text="Score="+str(Score), fill="black")
     # str_score.set('Your Score:' + str(Score))
-    canvas.create_text(100,50,fill = "black",font="your_font",text="Score: "+str(score),tags="score")
     canvas.delete('score')
+    canvas.create_text(100,50,fill = "black",font="your_font",text="Score: "+str(score),tags="score")
+    
 
 # DISPLAY WIN 
 def win():
     messagebox.showinfo("SUCCESS", "YOU WIN !")
-    # winsound()
+    winsound()
 
 # DISPLAY LOSE
 def lose():
     messagebox.showinfo("DEFEAT", "YOU LOSE !")
-    # gameoversound()
+    gameoversound()
 
 # RANDOM IMAGES OF ENEMIES
 # def randomEnemies():
@@ -116,7 +117,8 @@ def leftclick(event):
             win()
         if grid[Y][X-1] == 4 or grid[Y][X-1] == 6 or grid[Y][X-1] == 1:
             if grid[Y][X-1] == 4 or grid[Y][X-1] == 6 :
-                # eatsound()
+                eatsound()
+                
                 Score += 1
                 score()
                 print(Score)
@@ -138,7 +140,8 @@ def rightclick(event):
             win()
         if grid[Y][X+1] == 4 or grid[Y][X+1] == 6 or grid[Y][X+1] == 1:
             if grid[Y][X+1] == 4 or grid[Y][X+1] == 6 :
-                # eatsound()
+                eatsound()
+                
                 Score += 1
                 score()
                 print(Score)
@@ -160,7 +163,8 @@ def upclick(event):
             win()
         if grid[Y-1][X] == 4 or grid[Y-1][X] == 6 or grid[Y-1][X] == 1:
             if grid[Y-1][X] == 4 or grid[Y-1][X] == 6 :
-                # eatsound()
+                eatsound()
+                
                 Score += 1
                 score()
                 print(Score)
@@ -182,7 +186,7 @@ def downclick(event):
             win()
         if grid[Y+1][X] == 4 or grid[Y+1][X] == 6 or grid[Y+1][X] == 1:
             if grid[Y+1][X] == 4 or grid[Y+1][X] == 6 :
-                # eatsound()
+                eatsound()
                 Score += 1
                 score()
                 print(Score)
