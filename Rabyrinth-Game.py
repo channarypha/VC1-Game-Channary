@@ -41,8 +41,10 @@ arrayOfImages = ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png", "bad-angr
 # SCORE TEXT
 def score():
     global Score
-    # canvas.create_text(40,20, text="Score="+str(Score))
-    str_score.set('Your Score:' + str(Score))
+    # canvas.create_text(40,20, text="Score="+str(Score), fill="black")
+    # str_score.set('Your Score:' + str(Score))
+    canvas.create_text(100,50,fill = "black",font="your_font",text="Score: "+str(score),tags="score")
+    canvas.delete('score')
 
 # DISPLAY WIN 
 def win():
@@ -204,10 +206,10 @@ root.bind ( " <Up> ", upclick)
 root.bind ( " <Down> ", downclick)  
 
 # SCORE
-str_score = tk.StringVar()
-score_label = tk.Label(root, textvariable = str_score, font = ('Regular script', 20), width = 15, height = 1)
-str_score.set('Your Score:' + str(Score))
-score_label.place(x = 0, y = 20)
+# str_score = tk.StringVar()
+# score_label = tk.Label(root, textvariable = str_score, font = ('Regular script', 20), width = 15, height = 1)
+# str_score.set('Your Score:' + str(Score))
+# score_label.place(x = 0, y = 20)
 # put_a_background(canvas)
 
 # MAIN
