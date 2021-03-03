@@ -108,11 +108,12 @@ def leftclick(event):
             grid[Y][X-1] = 3
             win()
         if grid[Y][X-1] == 4 or grid[Y][X-1] == 6 or grid[Y][X-1] == 1:
-            grid[Y][X-1] = 3
             if grid[Y][X-1] == 4 or grid[Y][X-1] == 6 :
+                eatsound()
                 Score += 1
                 score()
                 print(Score)
+            grid[Y][X-1] = 3
     arrayToDrawing()
     print(grid)
 
@@ -129,11 +130,12 @@ def rightclick(event):
             grid[Y][X+1] = 3
             win()
         if grid[Y][X+1] == 4 or grid[Y][X+1] == 6 or grid[Y][X+1] == 1:
-            grid[Y][X+1] = 3
             if grid[Y][X+1] == 4 or grid[Y][X+1] == 6 :
+                eatsound()
                 Score += 1
                 score()
                 print(Score)
+            grid[Y][X+1] = 3
     print(grid)
     arrayToDrawing()
 
@@ -150,11 +152,12 @@ def upclick(event):
             grid[Y-1][X] = 3
             win()
         if grid[Y-1][X] == 4 or grid[Y-1][X] == 6 or grid[Y-1][X] == 1:
-            grid[Y-1][X] = 3
             if grid[Y-1][X] == 4 or grid[Y-1][X] == 6 :
+                eatsound()
                 Score += 1
                 score()
                 print(Score)
+            grid[Y-1][X] = 3
     print(grid)
     arrayToDrawing()
 
@@ -171,16 +174,24 @@ def downclick(event):
             grid[Y+1][X] = 3
             win()
         if grid[Y+1][X] == 4 or grid[Y+1][X] == 6 or grid[Y+1][X] == 1:
-            grid[Y+1][X] = 3
             if grid[Y+1][X] == 4 or grid[Y+1][X] == 6 :
+                eatsound()
                 Score += 1
                 score()
                 print(Score)
+            grid[Y+1][X] = 3
     print(grid)
     arrayToDrawing()
 
 # PLAY THE SOUND 
-winsound.PlaySound("win.wav", winsound.SND_FILENAME)
+def winsound() :
+    winsound.PlaySound("win.wav", winsound.SND_FILENAME)
+def gameoversound() :
+    winsound.PlaySound("gameover.wav", winsound.SND_FILENAME)
+def eatsound() :
+    winsound.PlaySound("eat.wav", winsound.SND_FILENAME)
+def errorsound() :
+    winsound.PlaySound("error.wav", winsound.SND_FILENAME)
 
 root = tk.Tk()
 #LEFT CLICK
