@@ -53,12 +53,12 @@ arrayOfImages = ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png", "bad-angr
 # DISPLAY WIN 
 def win():
     messagebox.showinfo("SUCCESS", "YOU WIN !")
-    winsound()
+    winsound .PlaySound('win.wav', winsound.SND_FILENAME)
 
 # DISPLAY LOSE
 def lose():
     messagebox.showinfo("DEFEAT", "YOU LOSE !")
-    gameoversound()
+    winsound .PlaySound('gameover.wav', winsound.SND_FILENAME)
 
 # RANDOM IMAGES OF ENEMIES
 # def randomEnemies():
@@ -119,14 +119,9 @@ def leftclick(event):
             win()
         if grid[Y][X-1] == 4 or grid[Y][X-1] == 6 or grid[Y][X-1] == 1:
             if grid[Y][X-1] == 4 or grid[Y][X-1] == 6 :
-                # eatsound()
                 winsound .PlaySound('eat.wav', winsound.SND_FILENAME)
-                
-                # score()
-                print(Score)
             grid[Y][X-1] = 3
     arrayToDrawing()
-    print(grid)
 
 # FUNCTION RIGHTCLICK
 def rightclick(event):
@@ -145,10 +140,7 @@ def rightclick(event):
                 # eatsound()
                 winsound .PlaySound('eat.wav', winsound.SND_FILENAME)
                 Score += 1
-                # score()
-                print(Score)
             grid[Y][X+1] = 3
-    print(grid)
     arrayToDrawing()
 
 # FUNCTION UPCLICK
@@ -165,13 +157,9 @@ def upclick(event):
             win()
         if grid[Y-1][X] == 4 or grid[Y-1][X] == 6 or grid[Y-1][X] == 1:
             if grid[Y-1][X] == 4 or grid[Y-1][X] == 6 :
-                # eatsound()
                 winsound .PlaySound('eat.wav', winsound.SND_FILENAME)
                 Score += 1
-                # score()
-                print(Score)
             grid[Y-1][X] = 3
-    print(grid)
     arrayToDrawing()
 
 # FUNCTION DOWNCLICK
@@ -188,13 +176,9 @@ def downclick(event):
             win()
         if grid[Y+1][X] == 4 or grid[Y+1][X] == 6 or grid[Y+1][X] == 1:
             if grid[Y+1][X] == 4 or grid[Y+1][X] == 6 :
-                # eatsound()
                 winsound .PlaySound('eat.wav', winsound.SND_FILENAME)
-                Score += 1
-                # score()
-                print(Score)
+                Score += 1 
             grid[Y+1][X] = 3
-    print(grid)
     arrayToDrawing()
 
 root = tk.Tk()
