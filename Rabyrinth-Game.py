@@ -12,9 +12,9 @@ SCREEN_WIDTH = 840
 SCREEN_HEIGHT = 840
 X = -1
 Y = -1
-# VARIABLE OF SCORE
-global Score
+# VARIABLE OF SCORE AND TIME LEFT
 Score = 0
+timeLeft = 30
 
 # VARIABLES OF GRID (ARRAY 2D)
 grid = [[7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7],
@@ -35,8 +35,7 @@ grid = [[7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7],
         [7,1,6,1,0,0,1,1,0,0,0,1,0,1,4,1,0,0,0,0,7],
         [7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7]]
 
-# ScoreOfCoins=0
-timeLeft = 30
+
 
 # ARRAY OF IMAGES
 arrayOfImages = ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png", "bad-angrybird.png"]
@@ -99,10 +98,12 @@ def arrayToDrawing():
     canvas.create_text(40, 20, fill="green", font="Times 16 italic bold", text="Score: "+str(Score))
     # TIME LEFT
     canvas.create_text(200, 20, fill="green", font="Times 16 italic bold", text="Time Left: "+str(timeLeft))
+
+    return None
                 
 # FUNCTION LEFT CLICK
 def leftclick(event):
-    global grid, Score, timeLeft
+    global grid, Score, timeLeft, ScoreOfCoins
     getIndex3()
     if X and grid[Y][X-1] == 1 or grid[Y][X-1] == 2 or grid[Y][X-1] == 5 or grid[Y][X-1] == 4 or grid[Y][X-1] == 6:
         grid[Y][X] = 1
@@ -117,6 +118,7 @@ def leftclick(event):
         if grid[Y][X-1] == 4 or grid[Y][X-1] == 6 or grid[Y][X-1] == 1:
             if grid[Y][X-1] == 4 or grid[Y][X-1] == 6 :
                 winsound .PlaySound('eat.wav', winsound.SND_FILENAME)
+                Score += 10
             grid[Y][X-1] = 3
     timeLeft -= 1
     arrayToDrawing()
@@ -137,9 +139,8 @@ def rightclick(event):
             
         if grid[Y][X+1] == 4 or grid[Y][X+1] == 6 or grid[Y][X+1] == 1:
             if grid[Y][X+1] == 4 or grid[Y][X+1] == 6 :
-                # eatsound()
                 winsound .PlaySound('eat.wav', winsound.SND_FILENAME)
-                Score += 1
+                Score += 10
             grid[Y][X+1] = 3
     timeLeft -= 1
     arrayToDrawing()
@@ -161,7 +162,7 @@ def upclick(event):
         if grid[Y-1][X] == 4 or grid[Y-1][X] == 6 or grid[Y-1][X] == 1:
             if grid[Y-1][X] == 4 or grid[Y-1][X] == 6 :
                 winsound .PlaySound('eat.wav', winsound.SND_FILENAME)
-                Score += 1
+                Score += 10
             grid[Y-1][X] = 3
     timeLeft -= 1
     arrayToDrawing()
@@ -183,7 +184,7 @@ def downclick(event):
         if grid[Y+1][X] == 4 or grid[Y+1][X] == 6 or grid[Y+1][X] == 1:
             if grid[Y+1][X] == 4 or grid[Y+1][X] == 6 :
                 winsound .PlaySound('eat.wav', winsound.SND_FILENAME)
-                Score += 1 
+                Score += 10
             grid[Y+1][X] = 3
     timeLeft -= 1
     arrayToDrawing()
