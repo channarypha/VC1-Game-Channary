@@ -197,16 +197,6 @@ def downclick(event):
     print(grid)
     arrayToDrawing()
 
-# PLAY THE SOUND 
-# def winsound() :
-#     winsound.PlaySound("win.wav", winsound.SND_FILENAME)
-# def gameoversound() :
-#     winsound.PlaySound("gameover.wav", winsound.SND_FILENAME)
-# def eatsound() :
-#     winsound.PlaySound("eat.wav", winsound.SND_FILENAME)
-# def errorsound() :
-#     winsound.PlaySound("error.wav", winsound.SND_FILENAME)
-
 root = tk.Tk()
 #LEFT CLICK
 root.bind ( " <Left> ", leftclick) 
@@ -221,7 +211,7 @@ root.bind ( " <Down> ", downclick)
 root.geometry ( str (SCREEN_WIDTH) + "x" + str ( SCREEN_HEIGHT ) )
 # TITTLE
 root.title('CHANNARY - PHA - GAMMER')
-
+# CANVAS
 canvas = tk.Canvas (root)
 canvas.pack(expand=True, fill="both")
 # ADD THE IMAGES TO THE CANVAS
@@ -242,3 +232,4 @@ root.mainloop()
 # 4.FOOD OR COIN OR ANYTHING ELSE
 # 5.GOAL
 # 6.CAKE
+# BLACK WALL
